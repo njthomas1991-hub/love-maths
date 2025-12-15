@@ -3,16 +3,18 @@
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
 
-    for(let button of buttons) {
+    for (let button of buttons) {
         button.addEventListener("click", function() {
-            if(this.getAttribute("data-type") === "submit") {
-                alert("You clicked submit");
+            if  (this.getAttribute("data-type") === "submit") {
+                alert("You clicked submit!");
             } else {
                 let gameType = this.getAttribute("data-type");
-                alert(`You clicked  ${gameType}`);
+                runGame(gameType);
             }
         });
     }
+
+    runGame("addition");
 });
 /**
  * The main game "loop", called when the script is first loaded
@@ -28,6 +30,7 @@ if (gameType === "addition") {
 } else {
     alert(`Unknown game type: ${gameType}`);
     throw `Unknown game type: ${gameType}. Aborting!`;
+}
 }
 
 function checkAnswer() {
