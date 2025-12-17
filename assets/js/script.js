@@ -29,8 +29,20 @@ if (gameType === "addition") {
      displayAddionQuestion(num1, num2);
 } else {
     alert(`Unknown game type: ${gameType}`);
-    throw `Unknown game type: ${gameType}. Aborting!`;
+    throw (`Unknown game type: ${gameType}. Aborting!`);
 }
+
+//multiplication, logic
+if (gameType === "multiplication") {
+     displayAddionQuestion(num1, num2);
+} else {
+    alert(`Unknown game type: ${gameType}`);
+    throw (`Unknown game type: ${gameType}. Aborting!`);
+}
+ 
+// subtraction logic 
+ 
+// division logic 
 }
 
 /**
@@ -38,6 +50,7 @@ if (gameType === "addition") {
  * the returned calculateCorrectAnswer array 
  */
 function checkAnswer() {
+
     let userAnswer = parseInt(document.getElementById("answer-box").value);
     let calculateAnswer = calculateCorrectAnswer();
     let isCorrect = userAnswer === calculateAnswer[0];
@@ -47,7 +60,11 @@ function checkAnswer() {
     } else {
         alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${calculateAnswer[0]}!`);
     }
-/***
+
+runGame(calculateAnswer[1]);
+}
+
+/**
  * gets the operands (the numbers)and the operator
  * directly from the dom. and returns correct answer.
  */
@@ -58,6 +75,13 @@ function calculateCorrectAnswer() {
 
     if (operator === "+") {
         return operand1 + operand2;
+    } else {
+        alert(`Unimplemented operator ${operator}`);
+        throw `Unimplemented operator ${operator}. Aborting!`;
+    }   
+
+    if (operator === "*") {
+        return operand1 * operand2;
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -81,7 +105,10 @@ function displayAddionQuestion(operand1, operand2) {
 function displaySubtractQuestion() {
 }   
 
-function displayMultiplyQuestion() {    
+function displayMultiplyQuestion() { 
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "+";   
 }
 
 function displayDivisionQuestion() {
