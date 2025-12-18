@@ -139,7 +139,12 @@ function displaySubtractQuestion(operand1, operand2) {
 }  
 
 function displayDivisionQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;
-    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;
+    // Ensure operand2 (the divisor) is not zero
+    let divisor = Math.floor(Math.random() * 25) + 1; // 1–25
+    let quotient = Math.floor(Math.random() * 25) + 1; // 1–25
+    let dividend = divisor * quotient; // makes sure the division is whole
+
+    document.getElementById('operand1').textContent = dividend; // numerator
+    document.getElementById('operand2').textContent = divisor;  // denominator
     document.getElementById('operator').textContent = "/"; 
 }
